@@ -1,0 +1,102 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"struts-2.3.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default,json-default" >
+
+	
+
+		<global-results>
+			<result name="login">index.jsp</result>
+		</global-results>
+		
+
+        <action name="dashboard" 
+			class="library.actions.LoginAction" method="dashboard">
+			<result name="success">jsp/dashboard.jsp</result>
+			<result name="error">index.jsp</result>
+		</action>
+		<action name="signIn" 
+			class="library.actions.LoginAction" method="signIn">
+			<result name="success">jsp/dashboard.jsp</result>
+			<result name="error">index.jsp</result>
+			<result name="input">index.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		<action name="listStudents" 
+			class="library.actions.StudentAction" method="listStudents">
+			<result name="success">jsp/listStudents.jsp</result>
+			<!--  <result name="error"></result>-->
+			<result name="input">jsp/dashboard.jsp</result>
+		</action>
+		
+		
+		<action name="prepareAddStudent" 
+			class="library.actions.StudentAction" method="prepareAddStudent">
+			<result name="success">jsp/addEditStudent.jsp</result>
+			<!--  <result name="error"></result>-->
+			<result name="input">jsp/dashboard.jsp</result>
+		</action>
+		
+		<action name="addEditStudent" 
+			class="library.actions.StudentAction" method="addEditStudent">
+			<result name="success">jsp/listStudents.jsp</result>
+			<result name="input">jsp/addEditStudent.jsp</result>
+		</action>
+		
+		<action name="listBooks" 
+			class="library.actions.BookAction" method="listBooks">
+			<result name="success">jsp/listBooks.jsp</result>
+			<!--  <result name="error"></result>-->
+			<result name="input">jsp/dashboard.jsp</result>
+		</action>
+		
+		
+		<action name="addBook" 
+			class="library.actions.BookAction" method="addBook">
+			<result name="success">jsp/addNewBook.jsp</result>
+			<!--  <result name="error"></result>-->
+			<result name="input">jsp/dashboard.jsp</result>
+		</action>
+		
+		
+		<action name="addNewBook" 
+			class="library.actions.BookAction" method="addNewBook">
+			<result name="input">jsp/addNewBook.jsp</result>
+			<!--  <result name="error"></result>-->
+			<result name="success">jsp/listBooks.jsp</result>
+		</action>
+	
+		<action name="prepareIssue" 
+			class="library.actions.StudentAction" method="prepareIssue">
+			<result name="input">jsp/searchStudent.jsp</result>
+			<result name="success">jsp/searchStudent.jsp</result>
+		</action>
+		
+		<action name="searchStudent" 
+			class="library.actions.StudentAction" method="searchStudent">
+			<result name="input">jsp/searchStudent.jsp</result>
+			<result name="student">jsp/searchBook.jsp</result>
+			<result name="success">jsp/searchStudent.jsp</result>
+		</action>
+		
+		<action name="searchBook" 
+			class="library.actions.StudentAction" method="searchBook">
+			<result name="input">jsp/searchBook.jsp</result>
+			<result name="issued">jsp/issuedBooks.jsp</result>
+			<result name="success">jsp/searchBook.jsp</result>
+		</action>
+		
+		<action name="issedBooks" 
+			class="library.actions.StudentAction" method="issedBooks">
+			<result name="success">jsp/issuedBooks.jsp</result>
+			
+			<result name="input">jsp/dashboard.jsp</result>
+		</action>
+		
+	</package>
+</struts>
